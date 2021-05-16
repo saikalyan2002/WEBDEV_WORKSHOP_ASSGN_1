@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sollands</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      #navbar {
+        background-color: #0b090a;
+        width: 100%;
+        height: 100px;
+        border-bottom-style: groove;
+        border-bottom-width: 20px;
+        z-index:5;
+      }
+      body {
+        background-color:#0b090a;
+        margin: 0;
+      }
+      .logo {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+      }
+      #title {
+        font-family: "Lucida Handwriting";
+        color: #d3d3d3;
+        font-weight: bold;
+        font-size: 55px;
+        padding: 19px;
+      }
+      .headings {
+        font-family: "Garamond";
+        font-size: 26px;
+        padding-top: 45px;
+      }
+      #home {
+        padding-left: 490px;
+        padding-right: 7px;
+        border-style: none solid none none;
+        border-width: 0 1px 0 0;
+        border-color: #d3d3d3;
+      }
+      #specialities {
+        padding-right: 7px;
+        border-style: none solid none none;
+        border-width: 0 1px 0 0;
+        border-color: #d3d3d3;
+      }
+      #recommendations {
+        padding-right: 7px;
+        border-style: none solid none none;
+        border-width: 0 1px 0 0;
+        border-color: #d3d3d3;
+      }
+      #reviews {
+        padding-right: 11px;
+        border-style: none solid none none;
+        border-width: 0 1px 0 0;
+        border-color: #d3d3d3;
+      }
+      #footer {
+        padding-right: 11px;
+      }
+      #navbar {
+        display: flex;
+        position: fixed;
+        margin: 0;
+      }
+      .title {
+        font-family: "Lucida Handwriting";
+        font-size: 170px;
+        color: #ffffff;
+        margin-top: 25%;
+      }
+      .slogan {
+        font-family: "Garamond";
+        font-size: 40px;
+        color: #ffffff;
+      }
+      .intro span {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+        padding-left: 20px;
+      }
+      .intro {
+        display: flex;
+        background-color: #161a1d;
+      }
+      .btn {
+        font-size: 65px;
+        background-color: #161a1d;
+        border-radius: 20px;
+        font-family: "Garamond";
+        font-weight: bold;
+        color: #b1a7a6;
+        border-style: solid solid solid solid;
+        border-color: #b1a7a6 #b1a7a6 #b1a7a6 #b1a7a6;
+        border-width: 1px 1px 1px 1px;
+        margin: auto;
+      }
+      .headings a:hover {
+        color: #e5383b;
+      }
+      .headings a {
+        color: #b1a7a6;
+        text-decoration: none;
+      }
+
+      .tap a:hover {
+        color: #ba181b;
+      }
+      .tap a {
+        color: #b1a7a6;
+        text-decoration: none;
+      }
+      #logo {
+        display: flex;
+      }
+      .stitlehead {
+        font-size: 600%;
+        text-align: center;
+        text-decoration: underline;
+      }
+      .rtitlehead {
+        font-size: 600%;
+        text-align: center;
+        text-decoration: underline;
+      }
+      .atitle{
+        text-align: center;
+        text-decoration: underline;
+      }
+      .rrtitlehead {
+          color:#F5F3F4;
+        font-size: 600%;
+        text-align: center;
+        text-decoration: underline;
+      }
+      .Specialities {
+        background-color: #d3d3d3;
+        margin: 0;
+      }
+      .Recommendations {
+        background-color: #B1A7A6;
+        margin: 0;
+      }
+      .Reviews {
+        background-color: #161A1D;
+        margin: 0;
+      }
+
+      .sdishes {
+        display: flex;
+        font-family: Garamond;
+        font-size: 150%;
+      }
+      #dish1 {
+          position:relative;
+        border: groove 4px #161a1d;
+        padding: 8px;
+        margin-left: 10px;
+        border-radius: 5px;
+      }
+      #dish2 {
+        position:relative;
+        border: groove 4px #161a1d;
+        padding-top:8px;
+        margin-left: 10px;
+        border-radius: 5px;
+      }
+      #dish3 {
+        position:relative;
+        border: groove 4px #161a1d;
+        padding-top:8px;
+        margin-left: 10px;
+        border-radius: 5px;
+      }
+      #dish4 {
+        position:relative;
+        border: groove 4px #161a1d;
+        padding: 8px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+      .veg {
+        position:absolute;
+        bottom:0;
+        left:0;
+        display: flex;
+        background-color: green;
+        text-align: center;
+        width: 45px;
+        height: 50px;
+        padding-top: 15px;
+        margin-right: 250px;
+        border: solid 1px #161a1d;
+      }
+      .Non-veg {
+        position:absolute;
+        bottom:0;
+        left:0;
+        display: flex;
+        background-color: red;
+        text-align: center;
+        width: 60px;
+        margin-right: 250px;
+        border: solid 1px #161a1d;
+      }
+       .price{
+        position:absolute;
+        font-size:30px;
+        right:0px;
+        bottom:0px;
+        } 
+        .dishes{
+            width:90%;
+            display:block;
+            margin:auto;
+        }
+        .dishe{
+            width:99%;
+            display:block;
+            margin:auto;
+        }
+        /* .cart:focus{
+            content:attr(data-focus);
+        } */
+        .cart{
+           position:absolute;
+           left:0;
+           top:188px;
+
+        }
+        .search{
+            padding-left:36%;
+           
+        }
+        .search input[type=text] {
+            font-size:30px;
+            border: 4px solid #161A1D;
+            text-align:center;
+         }
+         /* .searchbar{
+             width:50px;
+             height:50px;
+             padding-top:30px;
+             padding-right:3px;
+             cursor:pointer;
+         } */
+         .space{
+            padding:10px;
+         }
+         #review1 {
+        position:relative;
+        display:block;
+        border: groove 4px #F5F3F4;
+        padding: 8px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px; 
+        
+         } 
+         #review2 {
+        position:relative;
+        display:block;
+        border: groove 4px #F5F3F4;
+        padding: 8px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px; 
+       
+         } 
+         #review3 {
+             display:block;
+        position:relative;
+        border: groove 4px #F5F3F4;
+        padding: 8px;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+  
+         }
+         .flex{
+             display:flex;
+         } 
+         .Reviews{
+             color:#F5F3F4;
+         }
+         .part2{
+             background-color:#161A1D;
+             font-size:35px;
+             color:#D3D3D3;
+             padding-left:42%;
+         }
+         .form{
+             background-color:#161A1D;
+             font-size:30px;
+             color:#D3D3D3;
+             padding-left:39%;
+         }
+         .submit{
+            background-color:#161A1D;
+            color:#D3D3D3;
+            margin:0 auto;
+            
+         }
+         .added{
+             display: none;
+          }
+          .cart:focus .added{
+
+             display: block;
+             background-color:green;
+
+           }
+           .cart:focus .add{
+
+             display: none;
+
+            }
+            .footer{
+              background-color:#0b090a;
+              margin:0 auto;
+              color:#D3D3D3;
+            }
+            .terms{
+              font-family:"Garamond";
+              font-size:30px;
+              list-style-type:none;
+              padding-left:210px ;
+            }
+            .Term a{
+              color:#D3D3D3;
+            }
+            .Term a:hover{
+              color:#e5383b;
+            }
+            .socialhandles{
+              border:solid 2px #D3D3D3;
+              border-radius:10px;
+              padding:5px;
+            }
+            .socialhandles i{
+              color:#F5F3F4;
+              font-size:30px;
+            }
+            .social{
+              display:flex;
+              justify-content: space-around;
+              margin-top:30px;
+            }
+            .searchicon{
+              border:solid 4px black;
+              padding:7px;
+              font-size:23px;
+              
+            }
+            .search a{
+              color:black;
+            }
+            .revi{
+              font-size:25px;
+            }
+    </style>
+  </head>
+  <body>
+    <div id="navbar">
+      <div id="logo">
+        <img class="logo" src="wineglasses.jpg" />
+        <span id="title">Sollands</span>
+        <span class="headings">
+          <span id="home"><a href="#Home">Intro</a></span>
+          <span id="specialities"><a href="#special">Specialities</a></span
+          >
+          <span id="recommendations"><a href="#rec">Recommendations</a></span>
+          <span id="reviews"><a href="#rev">Reviews</a></span>
+          <span id="footer"><a href="#aboutus">About us</a></span>
+        </span>
+      </div>
+    </div>
+    <div id="Home" class="intro">
+      <span style="margin-left: 10px"
+        ><img
+          src="https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1864&q=80"
+          style="height: 753px"
+      /></span>
+      <span class="imgheading">
+        <span class="title">Sollands</span>
+        <span class="slogan">"An Oasis of pleasure"</span>
+        <span class="tap"
+          ><button type="button" class="btn">
+            <a href="#special">Check our Specialities!</a>
+          </button></span
+        ></span
+      >
+    </div>
+    <div class="Specialities" >
+      <div class="stitlehead" id="special">Specialities</div>
+      <div
+        style="
+          text-align: center;
+          font-size: 20px;
+          color: #0b090a;
+          font-weight: bold;
+        "
+      >
+        "Deliciousness jumping into the mouth"
+      </div>
+      <div class="sdishes">
+        <div id="dish1">
+          <img class="dishes"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+            
+          />
+          
+          <div style="text-align: center; font-weight: bold"><button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>loremim</div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+            maiores eligendi consequatur est soluta sunt.<br>
+          </p>
+            
+            <div class="veg">Veg</div>
+            <div class="price">$25.99</div>
+        </div>
+        <div id="dish2">
+          <img class="dishe"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+            style="width:90%"
+          />
+          <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+          <div style="text-align: center; font-weight: bold">doraemon</div>
+          <p style="padding-bottom:100px">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+            maiores eligendi consequatur est soluta sunt.
+          </p>
+          
+          <div class="Non-veg">Non-veg</div>
+          <div class="price">$25.99</div>
+        </div>
+        <div id="dish3">
+          <img class="dishe"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+            style="width:90%"
+          />
+          <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+          <div style="text-align: center; font-weight: bold">lalachoco</div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+            maiores eligendi consequatur est soluta sunt.
+          </p>
+          
+          <div class="Non-veg">Non-veg</div>
+          <div class="price">$25.99</div>
+         
+        </div>
+        <div id="dish4">
+          <img class="dishes"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+            style="width:90%"
+          />
+          <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+          <div style="text-align: center; font-weight: bold">spacy</div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+            maiores eligendi consequatur est soluta sunt.
+          </p>
+          
+          <div class="veg">Veg</div>
+          <div class="price">$25.99</div>
+        </div>
+      </div>
+      <div class="space"></div>
+    </div>
+    
+
+    <div class="Recommendations" >
+        <div class="rtitlehead" id="rec">Our Recommendations</div>
+        <div
+          style="
+            text-align: center;
+            font-size: 20px;
+            color: #0b090a;
+            font-weight: bold;
+          "
+        >
+          "The flavors of nature."
+        </div>
+            <div class="search flex">
+                <input type="text" placeholder="Search..">
+                <a href="#"><i class="fa fa-search searchicon" aria-hidden="true"></i></a>
+            </div>
+            <div class="space"></div>
+            <div class="sdishes">
+                <div id="dish1">
+                  <img class="dishes"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    
+                  />
+                  
+                  <div style="text-align: center; font-weight: bold"><button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>loremim</div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.<br>
+                  </p>
+                    
+                    <div class="veg">Veg</div>
+                    <div class="price">$25.99</div>
+                </div>
+                <div id="dish2">
+                  <img class="dishe"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    style="width:90%"
+                  />
+                  <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+                  <div style="text-align: center; font-weight: bold">doraemon</div>
+                  <p style="padding-bottom:100px">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.
+                  </p>
+                  
+                  <div class="Non-veg">Non-veg</div>
+                  <div class="price">$25.99</div>
+                </div>
+                <div id="dish3">
+                  <img class="dishe"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    style="width:90%"
+                  />
+                  <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+                  <div style="text-align: center; font-weight: bold">lalachoco</div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.
+                  </p>
+                  
+                  <div class="Non-veg">Non-veg</div>
+                  <div class="price">$25.99</div>
+                 
+                </div>
+                <div id="dish4">
+                  <img class="dishes"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    style="width:90%"
+                  />
+                  <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+                  <div style="text-align: center; font-weight: bold">spacy</div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.
+                  </p>
+                  
+                  <div class="veg">Veg</div>
+                  <div class="price">$25.99</div>
+                </div>
+              </div>
+
+                <div class="space"></div>
+              <div class="sdishes">
+                <div id="dish1">
+                  <img class="dishes"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    
+                  />
+                  
+                  <div style="text-align: center; font-weight: bold"><button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>loremim</div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.<br>
+                  </p>
+                    
+                    <div class="veg">Veg</div>
+                    <div class="price">$25.99</div>
+                </div>
+                <div id="dish2">
+                  <img class="dishe"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    style="width:90%"
+                  />
+                  <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+                  <div style="text-align: center; font-weight: bold">doraemon</div>
+                  <p style="padding-bottom:100px">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.
+                  </p>
+                  
+                  <div class="Non-veg">Non-veg</div>
+                  <div class="price">$25.99</div>
+                </div>
+                <div id="dish3">
+                  <img class="dishe"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    style="width:90%"
+                  />
+                  <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+                  <div style="text-align: center; font-weight: bold">lalachoco</div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.
+                  </p>
+                  
+                  <div class="Non-veg">Non-veg</div>
+                  <div class="price">$25.99</div>
+                 
+                </div>
+                <div id="dish4">
+                  <img class="dishes"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDioPrL_TUfVmLyiCO1pegZPtlZPoZCcwWnQ&usqp=CAU"
+                    style="width:90%"
+                  />
+                  <button type="button" class="cart"><p class="add">ADD+</p><p class="added">ADDED</p></button>
+                  <div style="text-align: center; font-weight: bold">spacy</div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+                    maiores eligendi consequatur est soluta sunt.
+                  </p>
+                  
+                  <div class="veg">Veg</div>
+                  <div class="price">$25.99</div>
+                </div>
+              </div>
+              <div class="space"></div> 
+            </div> 
+            </div> 
+              
+    </div>
+
+
+
+    <div class="Reviews" >
+        <div class="rrtitlehead" id="rev">Reviews</div>
+        <div class="flex">
+        <div id="review1"><img src="https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?size=626&ext=jpg" style="margin: 0 auto;width:99%">
+        
+        <div style="font-size:30px;text-align:center;font-weight:bold">Elena</div>
+        <div><p class="revi" style="font-weight:bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aut non voluptates, error quaerat rerum.</p></div>
+        
+        </div>
+        <div id="review2"><img src="https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?size=626&ext=jpg" style="margin: 0 auto;width:99%">
+        
+        <div style="font-size:30px;text-align:center;font-weight:bold">dominic</div>
+        <div><p class="revi" style="font-weight:bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aut non voluptates, error quaerat rerum.</p></div>
+        
+        </div>
+        <div id="review3"><img src="https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?size=626&ext=jpg" style="margin: 0 auto;width:99%">
+        
+        <div style="font-size:30px;text-align:center;font-weight:bold">Dwayne</div>
+        <div><p class="revi" style="font-weight:bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi aut non voluptates, error quaerat rerum.</p></div>
+        
+        </div>
+    </div>
+    <div class="space"></div>
+    </div>
+    <div class="part2">Give your review!</div>
+    <form class="form">
+        <div>Name :- <input type="text" placeholder="Enter you name here" style="font-size:20px"></div>
+        <div>Email :- <input type="email" placeholder="Enter you Email-ID here" style="font-size:20px"></div>
+        <div class="flex space"><p id="textbox">Review :-</p><textarea placeholder="Type here" cols=20 rows=10 ></textarea></div>
+    </form><div class="submit">
+    <button type="button" class="flex space submit" style="text-align:center">Submit</button>
+    <div class="space"></div></div>
+
+    
+
+
+    <footer class="footer">
+      <div><h1 class="atitle" id="aboutus" style="font-size:300%">About Us</h1></div>
+      <div class="flex Term">
+      <li  class="terms"><a href="#" target="_blank">Terms and conditions </a></li >
+      <li class="terms"><a href="#" target="_blank"> Privacy Policy </a></li >
+      <li  class="terms"><a href="#" target="_blank"> Copyright-Information </a></li >
+      </div>
+      <div class="space"></div>
+      <div class="sm" style="font-size:30px;text-align:center;text-decoration:underline ;">
+        Our social media handles
+      </div>
+      <div class="social">
+        <a href="#" class="socialhandles"><i class="fa fa-facebook"></i></a>
+                  <a href="#" class="socialhandles"><i class="fa fa-twitter"></i></a>
+                  <a href="#" class="socialhandles"><i class="fa fa-linkedin"></i></a>
+                  <a href="#" class="socialhandles"><i class="fa fa-youtube"></i></a>
+                  <a href="#" class="socialhandles"><i class="fa fa-instagram"></i></a>
+      </div>
+      <div class="space"></div>
+      <div><button type="button" class="footer flex Term" style="font-family:Garamond;padding-left:0%;font-size:30px;text-align:center"><a href="#" >Back to the top!</a></button></div>
+      <div class="space"></div>
+      <hr>
+      <div style="text-align:center;font-size:20px">Made by Sai Kalyan Meghavath (20EC10070)</div>
+      <hr>
+     
+    </footer>
+    
+    
+
+
+
+</body>
+</html>
